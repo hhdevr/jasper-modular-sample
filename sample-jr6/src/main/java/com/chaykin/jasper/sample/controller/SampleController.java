@@ -30,7 +30,7 @@ public class SampleController {
 
     @GetMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<Resource> printModularReport() throws JasperModularException, JRException {
-        JasperPrint print = new JasperModularRenderer<>().render(CompanyReportData.buildModule());
+        JasperPrint print = new JasperModularRenderer().render(CompanyReportData.buildModule());
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
@@ -44,7 +44,7 @@ public class SampleController {
 
     @GetMapping(value = "/xlsx")
     public ResponseEntity<Resource> printXlsx() throws JasperModularException, JRException {
-        JasperPrint print = new JasperModularRenderer<>().render(CompanyReportData.buildModule());
+        JasperPrint print = new JasperModularRenderer().render(CompanyReportData.buildModule());
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
