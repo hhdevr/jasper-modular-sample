@@ -18,7 +18,7 @@
 
     <properties>
         <jasperreports.version>7.0.6</jasperreports.version>
-        <start-class>com.chaykin.jasper.sample.JR7SampleApplication</start-class>
+        <start-class>com.chaykin.jasper.sample.SampleApplication</start-class>
     </properties>
 
     <dependencies>
@@ -36,7 +36,7 @@
 
         <dependency>
             <groupId>io.github.hhdevr</groupId>
-            <artifactId>jasper-modular-starter-jr7</artifactId>
+            <artifactId>jasper-modular-starter</artifactId>
         </dependency>
     </dependencies>
 
@@ -54,7 +54,7 @@
                     <annotationProcessorPaths>
                         <path>
                             <groupId>io.github.hhdevr</groupId>
-                            <artifactId>jasper-modular-processor-jr7</artifactId>
+                            <artifactId>jasper-modular-processor</artifactId>
                             <version>${jasper-modular.version}</version>
                         </path>
                         <path>

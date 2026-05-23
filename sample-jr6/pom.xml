@@ -18,13 +18,19 @@
 
     <properties>
         <jasperreports.version>6.21.5</jasperreports.version>
-        <start-class>com.chaykin.jasper.sample.JR6SampleApplication</start-class>
+        <start-class>com.chaykin.jasper.sample.SampleApplication</start-class>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasperreports.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.hhdevr</groupId>
-            <artifactId>jasper-modular-starter-jr6</artifactId>
+            <artifactId>jasper-modular-starter</artifactId>
         </dependency>
     </dependencies>
 
@@ -42,7 +48,7 @@
                     <annotationProcessorPaths>
                         <path>
                             <groupId>io.github.hhdevr</groupId>
-                            <artifactId>jasper-modular-processor-jr6</artifactId>
+                            <artifactId>jasper-modular-processor</artifactId>
                             <version>${jasper-modular.version}</version>
                         </path>
                         <path>

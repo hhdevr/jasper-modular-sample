@@ -25,29 +25,19 @@
 
     <properties>
         <java.version>25</java.version>
-        <jasper-modular.version>1.0.0</jasper-modular.version>
+        <jasper-modular.version>2.0.1</jasper-modular.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.github.hhdevr</groupId>
-                <artifactId>jasper-modular-starter-jr6</artifactId>
+                <artifactId>jasper-modular-starter</artifactId>
                 <version>${jasper-modular.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.hhdevr</groupId>
-                <artifactId>jasper-modular-starter-jr7</artifactId>
-                <version>${jasper-modular.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.hhdevr</groupId>
-                <artifactId>jasper-modular-processor-jr6</artifactId>
-                <version>${jasper-modular.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.hhdevr</groupId>
-                <artifactId>jasper-modular-processor-jr7</artifactId>
+                <artifactId>jasper-modular-processor</artifactId>
                 <version>${jasper-modular.version}</version>
             </dependency>
         </dependencies>
