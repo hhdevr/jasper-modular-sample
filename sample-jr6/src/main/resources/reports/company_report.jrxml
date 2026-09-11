@@ -6,10 +6,15 @@
               name="company_report" pageWidth="595" pageHeight="842" columnWidth="555"
               leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
               uuid="ab622e17-838e-447f-845f-8e588c43e199">
-    <parameter name="TitleReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="TitleMapParameter" class="java.util.Map" />
-    <parameter name="FinancialSubModuleReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="FinancialSubModuleMapParameter" class="java.util.Map" />
+    <subDataset name="departmentsDataset" uuid="2e9a9445-ec61-4fa1-ba1f-b352918d5b49">
+        <field name="params" class="java.util.Map"/>
+        <field name="report" class="net.sf.jasperreports.engine.JasperReport"/>
+    </subDataset>
+    <parameter name="titleReport" class="net.sf.jasperreports.engine.JasperReport" />
+    <parameter name="titleMapParameter" class="java.util.Map" />
+    <parameter name="financialReport" class="net.sf.jasperreports.engine.JasperReport" />
+    <parameter name="financialMapParameter" class="java.util.Map" />
+    <parameter name="departmentsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
     <queryString>
         <![CDATA[]]>
     </queryString>
@@ -37,10 +42,10 @@
                 <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0"
                                y="4" width="555" height="10" isRemoveLineWhenBlank="true"
                                uuid="b34915ed-9f67-4f51-84a6-66d5d8891ce6" />
-                <parametersMapExpression><![CDATA[$P{TitleMapParameter}]]></parametersMapExpression>
+                <parametersMapExpression><![CDATA[$P{titleMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression>
                     <![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <subreportExpression><![CDATA[$P{TitleReport}]]></subreportExpression>
+                <subreportExpression><![CDATA[$P{titleReport}]]></subreportExpression>
             </subreport>
         </band>
         <band height="10" splitType="Stretch" />
@@ -50,11 +55,34 @@
                                y="0" width="555" height="10" isRemoveLineWhenBlank="true"
                                uuid="4615ede7-4e9d-4d5d-9001-efd960c98e35" />
                 <parametersMapExpression>
-                    <![CDATA[$P{FinancialSubModuleMapParameter}]]></parametersMapExpression>
+                    <![CDATA[$P{financialMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression>
                     <![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <subreportExpression><![CDATA[$P{FinancialSubModuleReport}]]></subreportExpression>
+                <subreportExpression><![CDATA[$P{financialReport}]]></subreportExpression>
             </subreport>
+        </band>
+        <band height="1">
+            <break>
+                <reportElement x="0" y="0" width="555" height="1" uuid="d1d1d1d1-0000-0000-0000-00000000000a"/>
+            </break>
+        </band>
+        <band height="100" splitType="Prevent">
+            <componentElement>
+                <reportElement x="0" y="0" width="555" height="100" uuid="3107c4b9-b3ef-4126-a479-e6ef916b810f"/>
+                <jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="departmentsDataset" uuid="59d1002d-503f-48df-a054-3b915f3f5856">
+                        <dataSourceExpression><![CDATA[$P{departmentsDataSource}]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:listContents height="100" width="555">
+                        <subreport>
+                            <reportElement positionType="Float" x="0" y="0" width="555" height="100" isRemoveLineWhenBlank="true" uuid="98b6efdf-29be-4ce5-a8a7-ab7460c0fc16"/>
+                            <parametersMapExpression><![CDATA[$F{params}]]></parametersMapExpression>
+                            <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+                            <subreportExpression><![CDATA[$F{report}]]></subreportExpression>
+                        </subreport>
+                    </jr:listContents>
+                </jr:list>
+            </componentElement>
         </band>
     </detail>
     <pageFooter>

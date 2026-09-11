@@ -2,12 +2,12 @@
 <jasperReport name="sub_financial_report" language="java" pageWidth="555" pageHeight="842"
               columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
               uuid="bba0d4d3-8c75-4a5d-b179-dd590c1a2739">
-    <parameter name="RevenueReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="RevenueMapParameter" class="java.util.Map" />
-    <parameter name="ExpenseReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="ExpenseMapParameter" class="java.util.Map" />
-    <parameter name="ProfitReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="ProfitMapParameter" class="java.util.Map" />
+    <parameter name="revenueReport" class="net.sf.jasperreports.engine.JasperReport" />
+    <parameter name="revenueMapParameter" class="java.util.Map" />
+    <parameter name="expenseReport" class="net.sf.jasperreports.engine.JasperReport" />
+    <parameter name="expenseMapParameter" class="java.util.Map" />
+    <parameter name="profitReport" class="net.sf.jasperreports.engine.JasperReport" />
+    <parameter name="profitMapParameter" class="java.util.Map" />
     <query language="sql"><![CDATA[]]></query>
     <background splitType="Stretch" />
     <detail>
@@ -42,10 +42,10 @@
                      stretchType="ElementGroupHeight" x="18" y="4" width="520" height="10"
                      removeLineWhenBlank="true">
                 <parametersMapExpression><![CDATA[
-                    $P{RevenueMapParameter}]]></parametersMapExpression>
+                    $P{revenueMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression><![CDATA[
                     new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <expression><![CDATA[$P{RevenueReport}]]></expression>
+                <expression><![CDATA[$P{revenueReport}]]></expression>
             </element>
         </band>
         <band height="6" splitType="Stretch">
@@ -73,10 +73,10 @@
                      stretchType="ElementGroupHeight" x="18" y="0" width="520" height="10"
                      removeLineWhenBlank="true">
                 <parametersMapExpression><![CDATA[
-                    $P{ExpenseMapParameter}]]></parametersMapExpression>
+                    $P{expenseMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression><![CDATA[
                     new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <expression><![CDATA[$P{ExpenseReport}]]></expression>
+                <expression><![CDATA[$P{expenseReport}]]></expression>
             </element>
         </band>
         <band height="6" splitType="Stretch">
@@ -104,10 +104,10 @@
                      stretchType="ElementGroupHeight" x="18" y="0" width="520" height="10"
                      removeLineWhenBlank="true">
                 <parametersMapExpression><![CDATA[
-                    $P{ProfitMapParameter}]]></parametersMapExpression>
+                    $P{profitMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression><![CDATA[
                     new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <expression><![CDATA[$P{ProfitReport}]]></expression>
+                <expression><![CDATA[$P{profitReport}]]></expression>
             </element>
         </band>
         <band height="6" splitType="Stretch">

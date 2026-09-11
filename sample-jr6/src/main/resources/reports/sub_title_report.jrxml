@@ -6,18 +6,21 @@
               name="sub_title_report" pageWidth="555" pageHeight="842" columnWidth="555"
               leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
               uuid="e547022a-ce82-49f9-be39-a05c0f6e8a9a">
-    <parameter name="companyDetails"
-               class="com.chaykin.jasper.sample.module.model.CompanyDetails" />
-    <parameter name="period" class="java.lang.String" />
-    <parameter name="currency" class="java.lang.String" />
-    <parameter name="totalRevenue" class="java.lang.Double" />
-    <parameter name="totalExpenses" class="java.lang.Double" />
-    <parameter name="netProfit" class="java.lang.Double" />
+    <subDataset name="highlights" uuid="f2ddb258-ee8f-44b2-8845-ba36517ad1a3">
+        <field name="_THIS" class="java.lang.String"/>
+    </subDataset>
+    <parameter name="companyDetails" class="com.chaykin.jasper.sample.module.model.CompanyDetails"/>
+    <parameter name="period" class="java.lang.String"/>
+    <parameter name="currency" class="java.lang.String"/>
+    <parameter name="totalRevenue" class="java.lang.Double"/>
+    <parameter name="totalExpenses" class="java.lang.Double"/>
+    <parameter name="netProfit" class="java.lang.Double"/>
+    <parameter name="highlights" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
     <queryString>
         <![CDATA[]]>
     </queryString>
     <background>
-        <band splitType="Stretch" />
+        <band splitType="Stretch"/>
     </background>
     <detail>
         <band height="234" splitType="Stretch">
@@ -267,6 +270,30 @@
                                uuid="b2c4fef0-b5c9-4f05-b556-8091564e494a" />
                 <imageExpression><![CDATA[$P{companyDetails}.getLogo()]]></imageExpression>
             </image>
+        </band>
+        <band height="90" splitType="Stretch">
+            <componentElement>
+                <reportElement positionType="Float" x="5" y="0" width="543" height="50" isRemoveLineWhenBlank="true" uuid="e14c0641-8217-4beb-bbc6-46873f9e3e4a"/>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="highlights" uuid="bd04d906-3643-4abe-adf4-bfa048fd5677">
+                        <dataSourceExpression><![CDATA[$P{highlights}]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="543" uuid="6e151b57-0870-476c-aeb3-c813a3db271b">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement x="0" y="0" width="543" height="20" uuid="5e5253c2-e4ba-4d8b-af3d-6f95fca7b340"/>
+                                <text><![CDATA[highlights]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="543" height="30" uuid="047a18ae-cee5-495c-b8de-4aa002482ae8"/>
+                                <textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
         </band>
     </detail>
 </jasperReport>

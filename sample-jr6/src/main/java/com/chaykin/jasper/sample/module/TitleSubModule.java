@@ -8,12 +8,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JasperSubreport(templatePath = "/reports/sub_title_report.jrxml",
-                 prefix = "Title")
+@JasperSubreport(templatePath = "/reports/sub_title_report.jrxml")
 public class TitleSubModule extends SubreportModule {
 
     private CompanyDetails companyDetails;
@@ -27,6 +28,8 @@ public class TitleSubModule extends SubreportModule {
     private Double totalExpenses;
 
     private Double netProfit;
+
+    private List<String> highlights;
 
     @Override
     public boolean isEmpty() {

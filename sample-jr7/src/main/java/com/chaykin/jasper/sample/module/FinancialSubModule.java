@@ -12,15 +12,15 @@ import lombok.Setter;
 @JasperSubreport(templatePath = "/reports/sub_financial_report.jrxml")
 public class FinancialSubModule extends SubreportModule {
 
-    private RevenueSubModule revenueSubModule;
+    private RevenueSubModule revenue;
 
-    private ExpenseSubModule expenseSubModule;
+    private ExpenseSubModule expense;
 
-    private ProfitSubModule profitSubModule;
+    private ProfitSubModule profit;
 
     @Override
     public boolean isEmpty() {
-        return revenueSubModule == null;
+        return revenue == null;
     }
 
 }

@@ -6,14 +6,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @JasperModularReport(templatePath = "/reports/company_report.jrxml")
 public class CompanyReport extends ModularReport {
 
-    private TitleSubModule titleSubModule;
+    private TitleSubModule title;
 
-    private FinancialSubModule financialSubModule;
+    private FinancialSubModule financial;
+
+    private List<DepartmentSubModule> departments;
 
 }

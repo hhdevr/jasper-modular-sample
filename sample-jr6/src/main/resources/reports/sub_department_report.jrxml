@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="sub_department_report" pageWidth="520" pageHeight="842" columnWidth="520"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="d1d1d1d1-0000-0000-0000-000000000001">
+    <subDataset name="employees" uuid="706fe1a0-c0d0-4244-ba09-260437a9e7e0">
+        <field name="name" class="java.lang.String" />
+        <field name="role" class="java.lang.String" />
+        <field name="salary" class="java.lang.Double" />
+    </subDataset>
+    <parameter name="name" class="java.lang.String" />
+    <parameter name="headcount" class="java.lang.Integer" />
+    <parameter name="budget" class="java.lang.Double" />
+    <parameter name="employees"
+               class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" />
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch" />
+    </background>
+    <detail>
+        <band height="140" splitType="Prevent">
+            <rectangle radius="2">
+                <reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0"
+                               width="518" height="138" forecolor="#990000" backcolor="#FFFAF9"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000002" />
+                <graphicElement>
+                    <pen lineWidth="1.5" lineStyle="Dashed" />
+                </graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0"
+                               width="4" height="138" forecolor="#990000" backcolor="#990000"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000008" />
+                <graphicElement>
+                    <pen lineWidth="0.0" />
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="10" y="3" width="200" height="12" forecolor="#990000"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000009" />
+                <textElement>
+                    <font size="7" isBold="true" />
+                </textElement>
+                <text><![CDATA[Subreport: Department]]></text>
+            </staticText>
+            <textField>
+                <reportElement mode="Opaque" x="0" y="17" width="518" height="20"
+                               forecolor="#FFFFFF" backcolor="#3D6B9E"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000003" />
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10" isBold="true" />
+                </textElement>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="10" y="41" width="95" height="14" forecolor="#3D6B9E"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000004" />
+                <textElement verticalAlignment="Middle">
+                    <font size="7" isBold="true" />
+                </textElement>
+                <text><![CDATA[Headcount:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="107" y="41" width="120" height="14"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000005" />
+                <textElement verticalAlignment="Middle">
+                    <font size="7" />
+                </textElement>
+                <textFieldExpression><![CDATA[$P{headcount}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="240" y="41" width="45" height="14" forecolor="#3D6B9E"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000006" />
+                <textElement verticalAlignment="Middle">
+                    <font size="7" isBold="true" />
+                </textElement>
+                <text><![CDATA[Budget:]]></text>
+            </staticText>
+            <textField pattern="#,##0.00">
+                <reportElement x="287" y="41" width="100" height="14"
+                               uuid="d1d1d1d1-0000-0000-0000-000000000007" />
+                <textElement verticalAlignment="Middle">
+                    <font size="7" />
+                </textElement>
+                <textFieldExpression><![CDATA[$P{budget}]]></textFieldExpression>
+            </textField>
+            <componentElement>
+                <reportElement stretchType="RelativeToTallestObject" x="5" y="58" width="510"
+                               height="20" uuid="3bdbb716-f65e-42bd-9577-b83e0d561fa9" />
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="employees" uuid="8a49499b-4b1e-49fa-91e4-eb277888224b">
+                        <dataSourceExpression><![CDATA[$P{employees}]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="170" uuid="3a10e3c2-c337-4801-8aec-b491bb92296b">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement mode="Opaque" x="0" y="0" width="170" height="20"
+                                               forecolor="#FFFFFF" backcolor="#3D6B9E"
+                                               uuid="f27df3b7-f64c-48d5-84c4-4750640da0d8" />
+                                <box leftPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                                <textElement verticalAlignment="Middle">
+                                    <font size="8" isBold="true" />
+                                </textElement>
+                                <text><![CDATA[Employee]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="18">
+                            <textField>
+                                <reportElement x="0" y="0" width="170" height="18"
+                                               uuid="fd137c8d-c619-482d-8096-f793d7c3a70a" />
+                                <box leftPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                                <textElement verticalAlignment="Middle">
+                                    <font size="7" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="170" uuid="563a61dd-48f8-4173-bc2b-5e5e0447fa56">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement mode="Opaque" x="0" y="0" width="170" height="20"
+                                               forecolor="#FFFFFF" backcolor="#3D6B9E"
+                                               uuid="75bae7e6-793a-456b-942d-b172e8055f91" />
+                                <box leftPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                                <textElement verticalAlignment="Middle">
+                                    <font size="8" isBold="true" />
+                                </textElement>
+                                <text><![CDATA[Role]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="18">
+                            <textField>
+                                <reportElement x="0" y="0" width="170" height="18"
+                                               uuid="80dfd686-df1d-47ec-8635-f11964aa8de2" />
+                                <box leftPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                                <textElement verticalAlignment="Middle">
+                                    <font size="7" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{role}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="170" uuid="58d0a376-6191-423b-893e-5277a296c343">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement mode="Opaque" x="0" y="0" width="170" height="20"
+                                               forecolor="#FFFFFF" backcolor="#3D6B9E"
+                                               uuid="ee5cb255-4827-4020-b483-b32de5050e07" />
+                                <box leftPadding="5" rightPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                                <textElement textAlignment="Right" verticalAlignment="Middle">
+                                    <font size="8" isBold="true" />
+                                </textElement>
+                                <text><![CDATA[Salary]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="18">
+                            <textField pattern="#,##0.00">
+                                <reportElement x="0" y="0" width="170" height="18"
+                                               uuid="f5cc8d5b-2319-4712-ba58-82bb2905a3f6" />
+                                <box leftPadding="5" rightPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                                <textElement textAlignment="Right" verticalAlignment="Middle">
+                                    <font size="7" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </detail>
+</jasperReport>

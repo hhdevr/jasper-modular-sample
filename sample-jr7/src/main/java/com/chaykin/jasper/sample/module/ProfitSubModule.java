@@ -14,8 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@JasperSubreport(templatePath = "/reports/sub_profit_report.jrxml",
-                 prefix = "Profit")
+@JasperSubreport(templatePath = "/reports/sub_profit_report.jrxml")
 public class ProfitSubModule extends SubreportModule {
 
     private Double grossProfit;
