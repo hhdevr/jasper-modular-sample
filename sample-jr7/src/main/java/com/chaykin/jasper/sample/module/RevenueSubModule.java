@@ -13,8 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@JasperSubreport(templatePath = "/reports/sub_revenue_report.jrxml",
-                 prefix = "Revenue")
+@JasperSubreport(templatePath = "/reports/sub_revenue_report.jrxml")
 public class RevenueSubModule extends SubreportModule {
 
     private Double totalRevenue;

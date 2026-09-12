@@ -3,7 +3,7 @@ package com.chaykin.jasper.sample.module;
 import com.chaykin.jasper.core.annotation.JasperCollection;
 import com.chaykin.jasper.core.annotation.JasperSubreport;
 import com.chaykin.jasper.core.model.SubreportModule;
-import com.chaykin.jasper.sample.module.model.ExpenseItem;
+import com.chaykin.jasper.sample.module.model.EmployeeItem;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,19 +13,21 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@JasperSubreport(templatePath = "/reports/sub_expense_report.jrxml")
-public class ExpenseSubModule extends SubreportModule {
+@JasperSubreport(templatePath = "/reports/sub_department_report.jrxml")
+public class DepartmentSubModule extends SubreportModule {
 
-    private Double totalExpenses;
+    private String name;
 
-    private Double growthPercent;
+    private Integer headcount;
 
-    @JasperCollection(columnWidth = 150)
-    private List<ExpenseItem> items;
+    private Double budget;
+
+    @JasperCollection(columnWidth = 170)
+    private List<EmployeeItem> employees;
 
     @Override
     public boolean isEmpty() {
-        return items == null || items.isEmpty();
+        return name == null;
     }
 
 }

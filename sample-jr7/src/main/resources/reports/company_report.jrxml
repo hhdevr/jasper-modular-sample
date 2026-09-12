@@ -2,19 +2,22 @@
 <jasperReport name="company_report" language="java" pageWidth="595" pageHeight="842"
               columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
               uuid="4a3a5c2a-fa1e-475c-9f61-2515baf03b99">
-    <parameter name="TitleReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="TitleMapParameter" class="java.util.Map" />
-    <parameter name="FinancialSubModuleReport" class="net.sf.jasperreports.engine.JasperReport" />
-    <parameter name="FinancialSubModuleMapParameter" class="java.util.Map" />
+    <dataset name="departmentsDataset" uuid="c456e1e8-f77b-4f24-91a9-10d58e5b9565">
+        <field name="params" class="java.util.Map"/>
+        <field name="report" class="net.sf.jasperreports.engine.JasperReport"/>
+    </dataset>
+    <parameter name="titleReport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="titleMapParameter" class="java.util.Map"/>
+    <parameter name="financialReport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="financialMapParameter" class="java.util.Map"/>
+    <parameter name="departmentsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
     <query language="sql"><![CDATA[]]></query>
-    <background splitType="Stretch" />
+    <background splitType="Stretch"/>
     <title height="38" splitType="Stretch">
-        <element kind="staticText" uuid="fc8adc47-ca5e-4d11-9a3b-58d1ae687469" mode="Opaque" x="0"
-                 y="0" width="555" height="34" forecolor="#FFFFFF" backcolor="#1A2E45"
-                 fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+        <element kind="staticText" uuid="fc8adc47-ca5e-4d11-9a3b-58d1ae687469" mode="Opaque" x="0" y="0" width="555" height="34" forecolor="#FFFFFF" backcolor="#1A2E45" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
             <text><![CDATA[ROOT REPORT - COMPANY OVERVIEW]]></text>
             <box>
-                <bottomPen lineWidth="3.0" lineColor="#CC0000" />
+                <bottomPen lineWidth="3.0" lineColor="#CC0000"/>
             </box>
         </element>
     </title>
@@ -23,10 +26,10 @@
             <element kind="subreport" uuid="1c09b6a5-f927-4447-8aa9-30e68372cc59"
                      stretchType="ElementGroupHeight" x="0" y="4" width="555" height="10"
                      removeLineWhenBlank="true">
-                <parametersMapExpression><![CDATA[$P{TitleMapParameter}]]></parametersMapExpression>
+                <parametersMapExpression><![CDATA[$P{titleMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression><![CDATA[
                     new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <expression><![CDATA[$P{TitleReport}]]></expression>
+                <expression><![CDATA[$P{titleReport}]]></expression>
             </element>
         </band>
         <band height="10" splitType="Stretch" />
@@ -35,10 +38,29 @@
                      stretchType="ElementGroupHeight" x="0" y="0" width="555" height="10"
                      removeLineWhenBlank="true">
                 <parametersMapExpression>
-                    <![CDATA[$P{FinancialSubModuleMapParameter}]]></parametersMapExpression>
+                    <![CDATA[$P{financialMapParameter}]]></parametersMapExpression>
                 <dataSourceExpression><![CDATA[
                     new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
-                <expression><![CDATA[$P{FinancialSubModuleReport}]]></expression>
+                <expression><![CDATA[$P{financialReport}]]></expression>
+            </element>
+        </band>
+        <band height="1">
+            <element kind="break" uuid="e4047136-b2d3-4b5f-813e-f982014549d1" x="0" y="0" width="555" height="1"/>
+        </band>
+        <band height="100" splitType="Stretch">
+            <element kind="component" uuid="7f01432f-5e78-4622-bf0b-3b06f7ad0753" positionType="Float" x="0" y="0" width="555" height="100" removeLineWhenBlank="true">
+                <component kind="list">
+                    <datasetRun uuid="e5bf0f0b-9690-45ef-a8c2-3b8a3d6d76f7" subDataset="departmentsDataset">
+                        <dataSourceExpression><![CDATA[$P{departmentsDataSource}]]></dataSourceExpression>
+                    </datasetRun>
+                    <contents height="100" width="555">
+                        <element kind="subreport" uuid="886372af-19f7-481a-a7d5-2ea732539987" positionType="Float" x="0" y="0" width="555" height="100" removeLineWhenBlank="true">
+                            <parametersMapExpression><![CDATA[$F{params}]]></parametersMapExpression>
+                            <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+                            <expression><![CDATA[$F{report}]]></expression>
+                        </element>
+                    </contents>
+                </component>
             </element>
         </band>
     </detail>

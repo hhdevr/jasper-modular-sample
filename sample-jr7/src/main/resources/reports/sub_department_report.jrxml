@@ -1,0 +1,134 @@
+<jasperReport name="sub_department_report" language="java" pageWidth="520" pageHeight="842"
+              columnWidth="520" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="d1d1d1d1-0000-0000-0000-000000000001">
+    <dataset name="employees" uuid="e8593c04-3ff6-4417-b12c-70a906d4cc15">
+        <field name="name" class="java.lang.String" />
+        <field name="role" class="java.lang.String" />
+        <field name="salary" class="java.lang.Double" />
+    </dataset>
+    <parameter name="name" class="java.lang.String" />
+    <parameter name="headcount" class="java.lang.Integer" />
+    <parameter name="budget" class="java.lang.Double" />
+    <parameter name="employees"
+               class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" />
+    <query language="sql"><![CDATA[]]></query>
+    <background splitType="Stretch" />
+    <detail>
+        <band height="140" splitType="Prevent">
+            <element kind="rectangle" uuid="d1d1d1d1-0000-0000-0000-000000000002"
+                     stretchType="ElementGroupHeight" mode="Opaque" x="0" y="0" width="518"
+                     height="138" forecolor="#990000" backcolor="#FFFAF9" radius="2">
+                <pen lineWidth="1.5" lineStyle="Dashed" />
+            </element>
+            <element kind="rectangle" uuid="d1d1d1d1-0000-0000-0000-000000000008"
+                     stretchType="ElementGroupHeight" mode="Opaque" x="0" y="0" width="4"
+                     height="138" forecolor="#990000" backcolor="#990000">
+                <pen lineWidth="0.0" />
+            </element>
+            <element kind="staticText" uuid="d1d1d1d1-0000-0000-0000-000000000009" x="10" y="3"
+                     width="200" height="12" forecolor="#990000" fontSize="7.0" bold="true">
+                <text><![CDATA[Subreport: Department]]></text>
+            </element>
+            <element kind="textField" uuid="d1d1d1d1-0000-0000-0000-000000000003" mode="Opaque"
+                     x="0" y="17" width="518" height="20" forecolor="#FFFFFF" backcolor="#3D6B9E"
+                     fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$P{name}]]></expression>
+            </element>
+            <element kind="staticText" uuid="d1d1d1d1-0000-0000-0000-000000000004" x="10" y="41"
+                     width="95" height="14" forecolor="#3D6B9E" fontSize="7.0" bold="true"
+                     vTextAlign="Middle">
+                <text><![CDATA[Headcount:]]></text>
+            </element>
+            <element kind="textField" uuid="d1d1d1d1-0000-0000-0000-000000000005" x="107" y="41"
+                     width="120" height="14" fontSize="7.0" vTextAlign="Middle">
+                <expression><![CDATA[$P{headcount}]]></expression>
+            </element>
+            <element kind="staticText" uuid="d1d1d1d1-0000-0000-0000-000000000006" x="240" y="41"
+                     width="45" height="14" forecolor="#3D6B9E" fontSize="7.0" bold="true"
+                     vTextAlign="Middle">
+                <text><![CDATA[Budget:]]></text>
+            </element>
+            <element kind="textField" uuid="d1d1d1d1-0000-0000-0000-000000000007" x="287" y="41"
+                     width="100" height="14" fontSize="7.0" pattern="#,##0.00" vTextAlign="Middle">
+                <expression><![CDATA[$P{budget}]]></expression>
+            </element>
+            <element kind="component" uuid="dcb6a205-9666-4339-8403-cd48ea37f692"
+                     stretchType="ElementGroupHeight" x="5" y="58" width="510" height="20">
+                <component kind="table">
+                    <datasetRun uuid="f8e83868-abf3-4753-be51-c6326b8a532d" subDataset="employees">
+                        <dataSourceExpression><![CDATA[$P{employees}]]></dataSourceExpression>
+                    </datasetRun>
+                    <column kind="single" uuid="77ed4310-a372-4934-aa9a-582c32d4db13" width="170">
+                        <columnHeader height="20">
+                            <element kind="staticText" uuid="6aefc8f0-2ae4-4a15-9d03-a94d19517281"
+                                     mode="Opaque" x="0" y="0" width="170" height="20"
+                                     forecolor="#FFFFFF" backcolor="#3D6B9E" fontSize="8.0"
+                                     bold="true" vTextAlign="Middle">
+                                <text><![CDATA[Employee]]></text>
+                                <box leftPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="18">
+                            <element kind="textField" uuid="6f8937fc-c218-4356-80f4-31fa8f4170a9"
+                                     x="0" y="0" width="170" height="18" fontSize="7.0"
+                                     vTextAlign="Middle">
+                                <expression><![CDATA[$F{name}]]></expression>
+                                <box leftPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                            </element>
+                        </detailCell>
+                    </column>
+                    <column kind="single" uuid="d8c6aa81-2f45-4fbf-b057-f432ad72d546" width="170">
+                        <columnHeader height="20">
+                            <element kind="staticText" uuid="84ac6308-6981-4348-9ea9-6b7649aad6f0"
+                                     mode="Opaque" x="0" y="0" width="170" height="20"
+                                     forecolor="#FFFFFF" backcolor="#3D6B9E" fontSize="8.0"
+                                     bold="true" vTextAlign="Middle">
+                                <text><![CDATA[Role]]></text>
+                                <box leftPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="18">
+                            <element kind="textField" uuid="d358f303-dba7-4eec-a321-5359374925c0"
+                                     x="0" y="0" width="170" height="18" fontSize="7.0"
+                                     vTextAlign="Middle">
+                                <expression><![CDATA[$F{role}]]></expression>
+                                <box leftPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                            </element>
+                        </detailCell>
+                    </column>
+                    <column kind="single" uuid="8fa317fc-244e-411e-8710-f5ea5ec62f3f" width="170">
+                        <columnHeader height="20">
+                            <element kind="staticText" uuid="63995405-302d-4f70-8639-a1c980812bd6"
+                                     mode="Opaque" x="0" y="0" width="170" height="20"
+                                     forecolor="#FFFFFF" backcolor="#3D6B9E" fontSize="8.0"
+                                     bold="true" hTextAlign="Right" vTextAlign="Middle">
+                                <text><![CDATA[Salary]]></text>
+                                <box leftPadding="5" rightPadding="5">
+                                    <pen lineWidth="1.0" lineColor="#1A3A5C" />
+                                </box>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="18">
+                            <element kind="textField" uuid="b412baa5-24a0-4e63-8f83-54881d91146b"
+                                     x="0" y="0" width="170" height="18" fontSize="7.0"
+                                     pattern="#,##0.00" hTextAlign="Right" vTextAlign="Middle">
+                                <expression><![CDATA[$F{salary}]]></expression>
+                                <box leftPadding="5" rightPadding="5">
+                                    <pen lineWidth="0.5" lineColor="#CCCCCC" />
+                                </box>
+                            </element>
+                        </detailCell>
+                    </column>
+                </component>
+            </element>
+        </band>
+    </detail>
+</jasperReport>

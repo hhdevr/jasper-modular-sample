@@ -1,12 +1,14 @@
 package com.chaykin.jasper.sample.data;
 
 import com.chaykin.jasper.sample.module.CompanyReport;
+import com.chaykin.jasper.sample.module.DepartmentSubModule;
 import com.chaykin.jasper.sample.module.ExpenseSubModule;
 import com.chaykin.jasper.sample.module.FinancialSubModule;
 import com.chaykin.jasper.sample.module.ProfitSubModule;
 import com.chaykin.jasper.sample.module.RevenueSubModule;
 import com.chaykin.jasper.sample.module.TitleSubModule;
 import com.chaykin.jasper.sample.module.model.CompanyDetails;
+import com.chaykin.jasper.sample.module.model.EmployeeItem;
 import com.chaykin.jasper.sample.module.model.ExpenseItem;
 import com.chaykin.jasper.sample.module.model.ProfitBreakdown;
 import com.chaykin.jasper.sample.module.model.RevenueItem;
@@ -99,9 +101,30 @@ public class CompanyReportData {
                                                   "USD",
                                                   totalRevenue,
                                                   totalExpenses,
-                                                  netProfit);
+                                                  netProfit,
+                                                  List.of("Revenue grew 18.4% year over year",
+                                                          "Software Products remain the largest revenue stream",
+                                                          "115 employees across 5 departments"));
 
-        return new CompanyReport(title, financial);
+        List<DepartmentSubModule> departments = List.of(
+                new DepartmentSubModule("Engineering", 48, 1_150_000.0, List.of(
+                        new EmployeeItem("Alice Nguyen", "Staff Engineer", 165_000.0),
+                        new EmployeeItem("Boris Ivanov", "Backend Engineer", 130_000.0),
+                        new EmployeeItem("Chen Wei", "QA Lead", 115_000.0))),
+                new DepartmentSubModule("Sales", 23, 610_000.0, List.of(
+                        new EmployeeItem("Diana Lopez", "Account Executive", 95_000.0),
+                        new EmployeeItem("Erik Larsen", "SDR", 60_000.0))),
+                new DepartmentSubModule("Operations", 17, 430_000.0, List.of(
+                        new EmployeeItem("Fatima Khan", "Ops Manager", 105_000.0),
+                        new EmployeeItem("Georg Weber", "Logistics", 78_000.0))),
+                new DepartmentSubModule("Marketing", 12, 320_000.0, List.of(
+                        new EmployeeItem("Hana Sato", "Brand Lead", 98_000.0),
+                        new EmployeeItem("Igor Petrov", "Content", 72_000.0))),
+                new DepartmentSubModule("R&D", 15, 540_000.0, List.of(
+                        new EmployeeItem("Julia Costa", "Research Lead", 140_000.0),
+                        new EmployeeItem("Kenji Mori", "ML Engineer", 125_000.0))));
+
+        return new CompanyReport(title, financial, departments);
     }
 
 }
